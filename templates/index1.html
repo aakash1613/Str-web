@@ -1,0 +1,101 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head> 
+  <title>MPR</title> 
+  
+<style>
+h1 {
+  color: black;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+.center {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+  text-align: center;
+}
+body { 
+	width: 100%;
+	height:100%;
+	font-family: 'Open Sans', sans-serif;
+	background: #092756;
+	font-size: 18px;
+  color: white;
+	text-align:center;
+	letter-spacing:1.2px;
+	background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%),-moz-linear-gradient(top,  rgba(57,173,219,.25) 0%, rgba(42,60,87,.4) 100%), -moz-linear-gradient(-45deg,  #670d10 0%, #092756 100%);
+	background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -webkit-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -webkit-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+	background: -o-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -o-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -o-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+	background: -ms-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -ms-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -ms-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+	background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), linear-gradient(to bottom,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), linear-gradient(135deg,  #670d10 0%,#092756 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', endColorstr='#092756',GradientType=1 );
+
+}
+input:focus { 
+  box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2);
+
+
+
+}
+input[type=text] {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: width 0.4s ease-in-out;
+}
+
+input[type=submit] {
+  width: 60%;
+  background-color: #45a049;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: 1px solid red;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #87CEEB;
+  color: black;
+  border: 1px solid rgb(0, 89, 255);
+}
+input[type=text]:focus {
+  width: 40%;
+}
+h1{ 
+ color: blanchedalmond;
+
+
+}
+</style>
+
+<div>
+<body bgcolor= "lightgray"> 
+<div class="center">
+<h1 align="center">House Price Predictor For xyz Private Limited</h1> 
+<form action="{{ url_for('predict')}}" method ="post">
+<label for="Area">Enter How Much Areas You Want(in sq.ft.)</label><br> <input type="text" name='Area' placeholder ="Enter Area in sq.ft." required = "required" class = "center" /><br><br>
+<label for="Bedroom"> Enter No of Bedrooms You Want</label> <br><input type="text" name = "Bedroom" placeholder ="type here" class = "center" required = "required"  /><br> <br>
+<label for="Bathroom"> Enter No Of Bathroom You Want</label> <br> <input type="text" name ="Bathroom"placeholder ="Type here" class = "center" required = "required"  /><br><br> 
+<label for="Stories"> Enter No Of Stories You Want</label><br> <input type="text" name = "Stories"placeholder ="Type here" class = "center" required = "required"  /><br><br> 
+<label for="Parking"> Enter No Of Parking You Want</label><br> <input type="text" name = "Parking" placeholder ="Enter Here" class = "center" required = "required"  /><br><br>
+<label for= "FurnishingStatus"> Whether you want Whether you want Un-Furnished/Semi-Furnished/Fully-Furnished<br>
+<input type="Text" name="FurnishingStatus" placeholder ="Enter only 0/1/2" required = "required">
+<p>Type 0 for Un-Furnished<br>Type 1 for Semi- Furnished<br>Type 2 for Fully-Furnished</p>
+</label><br>
+<input type="submit">
+</form>
+<br><br>
+{{ prediction_text }}
+</div>
+
+</div>
+</html>
